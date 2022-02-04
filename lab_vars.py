@@ -1,16 +1,15 @@
-name=None
-region=None
-az=None
-csr_ami_id=None
-ubuntu_ami_id=None
-
 def set_lab_vars(pod):
     name = "student" + pod
-    if (pod % 4) == 1:
-        region='us-west-1'
-        az='us-west-1a'
-        csr_ami_id='ami-0b6cee046d4cae9a9'
-        ubuntu_ami_id='ami-0514b4bd87dba7384'
+    pod = int(pod)
+    region = None
+    az = None
+    csr_ami_id = None
+    ubuntu_ami_id = None
+    if (pod % 4 == 1) :
+        region = 'us-west-1'
+        az = 'us-west-1a'
+        csr_ami_id = 'ami-0b6cee046d4cae9a9'
+        ubuntu_ami_id = 'ami-0514b4bd87dba7384'
     elif (pod % 4) == 2:
         region = "us-east-1"
         az = "us-east-1a"
@@ -26,4 +25,9 @@ def set_lab_vars(pod):
         az = "us-east-2a"
         csr_ami_id = "ami-0d43ca842a14ff342"  # us-east-2
         ubuntu_ami_id = "ami-093ab2ee72248accb"  # us-east-2
-    return name, region, az, csr_ami_id, csr_ami_id
+    print('name:', name)
+    print('region:', region)
+    print('az:', az)
+    print('csr_ami_id:', csr_ami_id)
+    print('ubuntu_ami_id:', ubuntu_ami_id)
+    return name, region, az, csr_ami_id, ubuntu_ami_id

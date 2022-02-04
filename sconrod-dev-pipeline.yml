@@ -113,8 +113,8 @@ jobs:
               export AWS_PAGER=""
               chmod a+x aws_key.sh
               chmod a+x aws_deploy.sh
-              ./aws_key.sh
-              ./aws_deploy.sh
+              ./aws_key.sh ((pod_number))
+              ./aws_deploy.sh ((pod_number))
       task: build-vpc
 
 - name: deploy-csr1000v
@@ -171,7 +171,7 @@ jobs:
               aws sts get-caller-identity --query Account --output text
               export AWS_PAGER=""
               chmod a+x csr_deploy.sh
-              ./csr_deploy.sh
+              ./csr_deploy.sh ((pod_number))
       task: build-csr1000v
 
 - name: deploy-ubuntu-lan
@@ -227,7 +227,7 @@ jobs:
               aws sts get-caller-identity --query Account --output text
               export AWS_PAGER=""
               chmod a+x aws_ubuntu_lan_deploy.sh
-              ./aws_ubuntu_lan_deploy.sh
+              ./aws_ubuntu_lan_deploy.sh ((pod_number))
       task: build-ubuntu-lan
 
 - name: deploy-ubuntu-router
@@ -283,7 +283,7 @@ jobs:
               aws sts get-caller-identity --query Account --output text
               export AWS_PAGER=""
               chmod a+x aws_ubuntu_router_deploy.sh
-              ./aws_ubuntu_router_deploy.sh
+              ./aws_ubuntu_router_deploy.sh ((pod_number))
       task: build-ubuntu-router
 
 resource_types:
